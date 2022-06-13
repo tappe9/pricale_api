@@ -2,6 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MainCalendarController;
+use App\Http\Controllers\GetDbController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +19,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/sample', [MainCalendarController::class, 'apiHello']);
+Route::get('/members', [GetDbController::class, 'getMembers']);
+Route::get('/users', [GetDbController::class, 'getUsers']);
